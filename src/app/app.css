@@ -1,0 +1,9 @@
+:host {
+  display: block;
+  background: var(--color-cream);
+  min-height: 100vh;
+}
+
+main {
+  position: relative;
+}

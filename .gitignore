@@ -1,0 +1,63 @@
+
+
+# Angular Build Outputs
+
+/dist
+/tmp
+
+/out-tsc
+/bazel-out
+/.angular
+
+
+# Node / NPM
+
+/node_modules
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+
+# Testing (not used in this portfolio)
+
+tsconfig.spec.json
+/coverage
+testem.log
+__screenshots__/
+
+
+# IDEs and editors
+
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+.history/
+
+
+# Visual Studio Code
+
+.vscode/
+
+
+# Miscellaneous
+
+.sass-cache/
+/connect.lock
+/libpeerconnection.log
+/typings
+
+
+# System files
+
+.DS_Store
+Thumbs.db
+
+
+# Markdown files (except README)
+
+*.md
+!README.md

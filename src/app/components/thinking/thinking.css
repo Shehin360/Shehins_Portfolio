@@ -1,0 +1,122 @@
+:host {
+  display: block;
+}
+
+.thinking-section {
+  background: var(--color-cream);
+}
+
+.thinking-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+/* ---------- Text Column ---------- */
+.thinking-text {
+  padding-right: var(--space-lg);
+}
+
+.thinking-heading {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: var(--space-md);
+  line-height: 1.25;
+}
+
+.thinking-bio {
+  font-family: var(--font-sans);
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+  color: #646464;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+
+.thinking-bio--accent {
+  color: var(--color-amber);
+  opacity: 0.85;
+  font-style: italic;
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+}
+
+/* ---------- Stack Card ---------- */
+.stack-card {
+  background: var(--color-cream-light);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+}
+
+.stack-title {
+  font-family: var(--font-sans);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.stack-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.stack-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.stack-category {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-amber);
+}
+
+.stack-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .thinking-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .thinking-text {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .thinking-heading {
+    font-size: 2rem;
+  }
+
+  .thinking-bio {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
+
+  .thinking-bio--accent {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
+
+  .stack-card {
+    padding: 1.5rem;
+  }
+}

@@ -1,0 +1,143 @@
+
+
+:host {
+  display: block;
+}
+
+.about-section {
+  background: var(--color-cream);
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+/* ---------- Text Column ---------- */
+.about-text {
+  padding-right: var(--space-lg);
+}
+
+.about-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+  line-height: 1.15;
+}
+
+.khang-greeting {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 1.25;
+  color: #444;
+}
+
+.khang-line {
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.khang-greeting .khang-line:last-child {
+  color: #444;
+  font-weight: 500;
+}
+
+.khang-name {
+  text-decoration: none;
+  border-bottom: 4px dotted #646464;
+  padding-bottom: 2px;
+}
+
+.about-bio {
+  font-family: var(--font-sans);
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+  color: #646464;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+
+.about-bio--accent {
+  color: var(--color-amber);
+  opacity: 0.85;
+  font-style: italic;
+  font-family: var(--font-serif);
+}
+
+.about-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.about-tag {
+  opacity: 0;
+}
+
+/* ---------- Portrait Column ---------- */
+.about-portrait-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.about-portrait {
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 3/4;
+  border-radius: 200px 200px 200px 200px;
+  overflow: hidden;
+  background: var(--color-cream-dark);
+  box-shadow: 0 20px 60px rgba(26, 24, 20, 0.08);
+}
+
+.about-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .about-text {
+    padding-right: 0;
+    order: 2;
+  }
+
+  .about-portrait-wrapper {
+    order: 1;
+  }
+
+  .about-portrait {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-heading {
+    font-size: 2rem;
+  }
+
+  .khang-greeting {
+    font-size: 1.75rem;
+  }
+
+  .about-bio {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
+
+  .about-portrait {
+    max-width: 260px;
+  }
+}

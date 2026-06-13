@@ -1,0 +1,55 @@
+<section id="hero" class="hero" #heroSection>
+  <!-- Floating decorative shapes -->
+  <div class="floating-shapes">
+    <div class="floating-shape shape-1">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+        <path d="M24 4L28.944 18.056L44 24L28.944 28.944L24 44L18.056 28.944L4 24L18.056 18.056L24 4Z" fill="currentColor"/>
+      </svg>
+    </div>
+    <div class="floating-shape shape-2">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="2" fill="none"/>
+        <circle cx="20" cy="20" r="6" fill="currentColor"/>
+      </svg>
+    </div>
+    <div class="floating-shape shape-3">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+        <rect x="8" y="8" width="28" height="28" rx="6" stroke="currentColor" stroke-width="2" fill="none" transform="rotate(15 22 22)"/>
+      </svg>
+    </div>
+    <div class="floating-shape shape-4">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+        <polygon points="18,2 34,28 2,28" stroke="currentColor" stroke-width="2" fill="none"/>
+      </svg>
+    </div>
+    <div class="floating-shape shape-5">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M16 2L20 12L30 16L20 20L16 30L12 20L2 16L12 12Z" fill="currentColor"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Hero Name — Top Left -->
+  <div class="hero-name">
+    <span>S</span><span>h</span><span>e</span><span>h</span><span>i</span><span>n</span><span>.</span>
+  </div>
+
+  <!-- Center Ghost Lines -->
+  <div class="hero-center">
+    @for (line of heroLines(); track line) {
+      <h2 class="hero-line">{{ line }}</h2>
+    }
+  </div>
+
+  <!-- Anchor Line — Bottom -->
+  <div class="hero-anchor">
+    <p class="anchor-text">Open to new opportunities.</p>
+    <button class="scroll-btn" (click)="scrollToAbout()" aria-label="Scroll to about section">
+      <div class="scroll-arrow">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+      </div>
+    </button>
+  </div>
+</section>

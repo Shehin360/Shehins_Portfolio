@@ -1,0 +1,21 @@
+<section id="projects" class="projects-section section-padding">
+  <div class="container">
+    <h2 class="projects-heading">Work I'm Proud Of</h2>
+    <div class="projects-grid">
+      @for (project of projects(); track project.name) {
+        <a [href]="project.github" target="_blank" rel="noopener noreferrer" class="project-card">
+          <div class="project-card-inner">
+            <span class="project-role">{{ project.role }}</span>
+            <h3 class="project-name">{{ project.name }}</h3>
+            <p class="project-desc">{{ project.description }}</p>
+            <div class="project-tags">
+              @for (tag of project.tags; track tag) {
+                <span class="tag tag-outline">{{ tag }}</span>
+              }
+            </div>
+          </div>
+        </a>
+      }
+    </div>
+  </div>
+</section>
