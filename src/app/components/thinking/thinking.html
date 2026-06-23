@@ -1,37 +1,19 @@
-<section id="thinking" class="thinking-section section-padding">
+<section id="skills" class="thinking-section section-padding">
   <div class="container">
-    <div class="thinking-content">
-      <!-- Left Column -->
-      <div class="thinking-text">
-        <h2 class="thinking-heading">How I think.</h2>
-        <p class="thinking-bio">
-          I'm drawn to problems that sit at the edge of what I know. I've built 
-          ML models that needed a frontend, and frontends that needed a backend — 
-          so I learned both. I write code that I'd want to read six months later. 
-          I'm still early, but I take the craft seriously.
-        </p>
-        <p class="thinking-bio thinking-bio--accent">
-          I'm drawn to problems where data meets product — where an ML model doesn't just
-          live in a notebook, but powers something people actually use.
-        </p>
-      </div>
-
-      <!-- Right Column — Operating Stack -->
-      <div class="stack-card">
-        <h3 class="stack-title">Operating Stack</h3>
-        <div class="stack-groups">
-          @for (group of stack(); track group.category) {
-            <div class="stack-group">
-              <span class="stack-category">{{ group.category }}</span>
-              <div class="stack-items">
-                @for (item of group.items; track item) {
-                  <span class="tag tag-outline">{{ item }}</span>
-                }
-              </div>
-            </div>
-          }
+    <div class="section-header">
+      <h2 class="section-title">&lt;/Skills&gt;</h2>
+      <div class="section-line"></div>
+    </div>
+    
+    <div class="skills-grid">
+      @for (skill of skills(); track skill.name) {
+        <div class="skill-card glass-panel" [title]="skill.name">
+          <div class="skill-icon-wrapper">
+            <img [src]="skill.icon" [alt]="skill.name" class="skill-icon" />
+          </div>
+          <span class="skill-name">{{ skill.name }}</span>
         </div>
-      </div>
+      }
     </div>
   </div>
 </section>

@@ -1,98 +1,71 @@
 :host {
   display: block;
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  transition: all var(--transition-smooth);
+  top: var(--space-md);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: 90%;
+  max-width: 800px;
 }
 
-nav {
-  padding: 1.5rem 0;
+#main-nav {
+  padding: 12px 24px;
   transition: all var(--transition-smooth);
-}
-
-nav.scrolled {
-  padding: 1rem 0;
-  background: rgba(252, 237, 212, 0.85);
+  background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
 }
 
 .nav-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 var(--space-md);
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 
-.nav-logo {
-  font-family: var(--font-serif);
-  font-size: 1.35rem;
-  font-weight: 600;
-  color: var(--color-amber);
-  cursor: pointer;
-  transition: opacity var(--transition-smooth);
-}
-
-.nav-logo:hover {
-  opacity: 0.7;
+.nav-avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .nav-links {
   display: flex;
-  align-items: center;
-  gap: 2rem;
+  gap: var(--space-lg);
 }
 
 .nav-link {
-  font-size: 0.95rem;
-  font-weight: 400;
-  color: var(--color-text);
-  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
   position: relative;
-  transition: color var(--transition-smooth);
 }
 
-.nav-link::after {
-  content: '';
+.nav-link:hover {
+  color: var(--color-text);
+}
+
+.active-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-text);
+  border-radius: 50%;
   position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 1.5px;
-  background: var(--color-amber);
-  transition: width var(--transition-smooth);
+  left: -12px;
 }
 
-.nav-link:hover,
-.nav-link.active {
-  color: var(--color-amber);
-}
-
-.nav-link:hover::after,
-.nav-link.active::after {
-  width: 100%;
-}
-
-.nav-link--accent {
-  color: var(--color-amber);
-  font-weight: 500;
-}
-
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .nav-links {
-    gap: 1.2rem;
+    gap: var(--space-sm);
   }
-
   .nav-link {
-    font-size: 0.85rem;
-  }
-
-  .nav-logo {
-    font-size: 1.15rem;
+    font-size: 0.8rem;
   }
 }

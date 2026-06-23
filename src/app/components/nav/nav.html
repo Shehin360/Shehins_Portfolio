@@ -1,9 +1,21 @@
-<nav id="main-nav" [class.scrolled]="scrolled()">
+<nav id="main-nav" class="glass-pill" [class.scrolled]="scrolled()">
   <div class="nav-inner">
-    <a class="nav-logo" routerLink="/" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active" role="button" tabindex="0">Shehin.</a>
+    <div class="nav-avatar">
+      <img src="avatar_static.png" alt="Avatar" />
+    </div>
     <div class="nav-links">
-      <a class="nav-link" routerLink="/" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active" role="button" tabindex="0">about</a>
-      <a class="nav-link" routerLink="/work" routerLinkActive="active" role="button" tabindex="0">work</a>
+      <a class="nav-link" href="#home" (click)="setActive('home')">
+        <span class="active-dot" *ngIf="activeSection() === 'home'"></span>&lt;/Home&gt;
+      </a>
+      <a class="nav-link" href="#aboutme" (click)="setActive('aboutme')">
+        <span class="active-dot" *ngIf="activeSection() === 'aboutme'"></span>&lt;/AboutMe&gt;
+      </a>
+      <a class="nav-link" href="#skills" (click)="setActive('skills')">
+        <span class="active-dot" *ngIf="activeSection() === 'skills'"></span>&lt;/Skills&gt;
+      </a>
+      <a class="nav-link" href="#projects" (click)="setActive('projects')">
+        <span class="active-dot" *ngIf="activeSection() === 'projects'"></span>&lt;/Projects&gt;
+      </a>
     </div>
   </div>
 </nav>

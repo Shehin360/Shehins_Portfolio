@@ -1,15 +1,9 @@
-import {
-  Component,
-  AfterViewInit,
-  PLATFORM_ID,
-  inject,
-  signal,
-} from '@angular/core';
+import { Component, AfterViewInit, PLATFORM_ID, inject, signal } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
-interface StackGroup {
-  category: string;
-  items: string[];
+interface Skill {
+  name: string;
+  icon: string;
 }
 
 @Component({
@@ -21,23 +15,13 @@ interface StackGroup {
 export class Thinking implements AfterViewInit {
   private readonly platformId = inject(PLATFORM_ID);
 
-  protected readonly stack = signal<StackGroup[]>([
-    {
-      category: 'Frontend',
-      items: ['Angular', 'TypeScript', 'HTML/CSS', 'RxJS', 'GSAP'],
-    },
-    {
-      category: 'Backend',
-      items: ['FastAPI', 'Firebase', 'SQLite', 'REST APIs'],
-    },
-    {
-      category: 'ML / AI',
-      items: ['Python', 'XGBoost', 'Scikit-learn', 'Pandas', 'SHAP'],
-    },
-    {
-      category: 'Tools',
-      items: ['Git', 'Docker', 'VS Code', 'Figma', 'Linux'],
-    },
+  protected readonly skills = signal<Skill[]>([
+    { name: 'Angular', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg' },
+    { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
+    { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+    { name: 'C', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg' },
+    { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
+    { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
   ]);
 
   async ngAfterViewInit(): Promise<void> {
@@ -47,52 +31,18 @@ export class Thinking implements AfterViewInit {
     const { ScrollTrigger } = await import('gsap/ScrollTrigger');
     gsap.registerPlugin(ScrollTrigger);
 
-    // Section fade in
     gsap.fromTo(
-      '.thinking-content',
-      { y: 50, opacity: 0 },
+      '.skill-card',
+      { y: 30, opacity: 0, scale: 0.9 },
       {
         y: 0,
         opacity: 1,
-        duration: 0.9,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: '.thinking-content',
-          start: 'top 80%',
-          once: true,
-        },
-      }
-    );
-
-    // Stack card
-    gsap.fromTo(
-      '.stack-card',
-      { y: 40, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: '.stack-card',
-          start: 'top 85%',
-          once: true,
-        },
-      }
-    );
-
-    // Stack groups stagger
-    gsap.fromTo(
-      '.stack-group',
-      { y: 20, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
+        scale: 1,
         duration: 0.6,
-        ease: 'power2.out',
-        stagger: 0.12,
+        ease: 'back.out(1.5)',
+        stagger: 0.1,
         scrollTrigger: {
-          trigger: '.stack-groups',
+          trigger: '.skills-grid',
           start: 'top 85%',
           once: true,
         },
