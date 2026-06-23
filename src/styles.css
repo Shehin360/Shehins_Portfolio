@@ -1,49 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap');
 
 /* ============================================================
-   GLOBAL DESIGN SYSTEM — Dark Glassmorphism Portfolio
+   GLOBAL DESIGN SYSTEM — Warm Pearl Cream Light Theme
    ============================================================ */
 
-/* ---------- CSS Custom Properties ---------- */
 :root {
-  --color-bg-dark: #0f0c1b;
-  --color-bg-gradient: radial-gradient(circle at 80% 20%, #1a1532 0%, #0f0c1b 50%);
-  --color-text: #f8f8f2;
-  --color-text-muted: #a1a1aa;
-  --color-text-ghost: rgba(255, 255, 255, 0.15);
-  --color-border: rgba(255, 255, 255, 0.1);
-  --color-accent: #8b5cf6;
-  --color-accent-light: #a78bfa;
-  
-  --gradient-text: linear-gradient(90deg, #a78bfa 0%, #60a5fa 100%);
-  --gradient-btn: linear-gradient(135deg, rgba(139, 92, 246, 0.8) 0%, rgba(96, 165, 250, 0.8) 100%);
+  /* Background */
+  --color-bg:          #FDF8F0;
+  --color-bg-surface:  #FAF3E8;
+  --color-bg-elevated: #FFFFFF;
 
-  --glass-bg: rgba(20, 15, 35, 0.4);
-  --glass-border: 1px solid rgba(255, 255, 255, 0.08);
+  /* Text */
+  --color-text:        #3E2723;
+  --color-text-muted:  #8D6E63;
+  --color-text-ghost:  rgba(62, 39, 35, 0.1);
 
-  --font-mono: 'Fira Code', monospace;
-  --font-sans: 'Inter', -apple-system, system-ui, sans-serif;
+  /* Borders */
+  --color-border:      rgba(62, 39, 35, 0.12);
 
-  --space-xs: 0.5rem;
-  --space-sm: 1rem;
-  --space-md: 1.5rem;
-  --space-lg: 3rem;
-  --space-xl: 5rem;
+  /* Accent */
+  --color-accent:      #FFB800;
+  --color-coral:       #FF6B6B;
+  --color-mint:        #40E0D0;
+
+  --gradient-text:     linear-gradient(90deg, #FF6B6B 0%, #40E0D0 100%);
+  --gradient-btn:      linear-gradient(135deg, #FFB800 0%, #FFA000 100%);
+
+  /* Cards / Glass (light version — frosted white, not dark) */
+  --glass-bg:          rgba(255, 255, 255, 0.6);
+  --glass-border:      1px solid rgba(62, 39, 35, 0.08);
+
+  /* Fonts */
+  --font-mono:    'Fira Code', monospace;
+  --font-sans:    'Inter', -apple-system, system-ui, sans-serif;
+  --font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+
+  /* Spacing */
+  --space-xs:  0.5rem;
+  --space-sm:  1rem;
+  --space-md:  1.5rem;
+  --space-lg:  3rem;
+  --space-xl:  5rem;
   --space-2xl: 8rem;
 
-  --radius-sm: 8px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
+  /* Radii */
+  --radius-sm:   8px;
+  --radius-md:   16px;
+  --radius-lg:   24px;
   --radius-pill: 100px;
 
-  --max-width: 1200px;
+  /* Misc */
+  --max-width:         1200px;
   --transition-smooth: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* ---------- Reset & Base ---------- */
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -59,9 +71,7 @@ html {
 body {
   font-family: var(--font-sans);
   color: var(--color-text);
-  background: var(--color-bg-dark);
-  background-image: var(--color-bg-gradient);
-  background-attachment: fixed;
+  background-color: var(--color-bg);
   line-height: 1.7;
   overflow-x: hidden;
 }
@@ -70,6 +80,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-sans);
   font-weight: 700;
   line-height: 1.2;
+  color: var(--color-text);
 }
 
 a {
@@ -91,27 +102,15 @@ button {
 }
 
 ::selection {
-  background: rgba(139, 92, 246, 0.3);
+  background: rgba(255, 107, 107, 0.2);
   color: var(--color-text);
 }
 
 /* ---------- Scrollbar ---------- */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--color-bg-dark);
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.4);
-}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: rgba(255, 107, 107, 0.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(64, 224, 208, 0.4); }
 
 /* ---------- Utility Classes ---------- */
 .container {
@@ -131,52 +130,59 @@ button {
   background-clip: text;
 }
 
-/* ---------- Glassmorphism ---------- */
+/* ---------- Light Glassmorphism ---------- */
 .glass-panel {
   background: var(--glass-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: var(--glass-border);
   border-radius: var(--radius-lg);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  box-shadow: 0 4px 24px rgba(62, 39, 35, 0.06);
 }
 
 .glass-pill {
-  background: rgba(20, 15, 35, 0.6);
+  background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(62, 39, 35, 0.08);
   border-radius: var(--radius-pill);
 }
 
-/* ---------- Custom Cursor ---------- */
-.custom-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 32px;
-  height: 32px;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: width 0.2s, height 0.2s, background 0.2s;
+/* ---------- Buttons ---------- */
+.btn-primary {
+  background: var(--gradient-btn);
+  color: #3E2723;
+  padding: 12px 32px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(255, 184, 0, 0.3);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(255, 184, 0, 0.45);
+}
+
+/* ---------- Section Headers (shared) ---------- */
+.section-header {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
 }
-
-.custom-cursor::after {
-  content: '';
-  width: 4px;
-  height: 4px;
-  background: #60a5fa;
-  border-radius: 50%;
+.section-title {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
-
-.custom-cursor.hover {
-  width: 48px;
-  height: 48px;
-  background: rgba(255, 255, 255, 0.1);
+.section-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 107, 107, 0.25) 0%, transparent 100%);
 }

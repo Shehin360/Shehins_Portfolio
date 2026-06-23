@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Hero } from '../../components/hero/hero';
+import { LiquidHeroComponent } from '../../components/liquid-hero/liquid-hero.component';
 import { About } from '../../components/about/about';
 import { Thinking } from '../../components/thinking/thinking';
 import { Projects } from '../../components/projects/projects';
@@ -7,9 +7,9 @@ import { Projects } from '../../components/projects/projects';
 @Component({
   selector: 'app-about-page',
   standalone: true,
-  imports: [Hero, About, Thinking, Projects],
+  imports: [LiquidHeroComponent, About, Thinking, Projects],
   template: `
-    <app-hero id="home"></app-hero>
+    <app-liquid-hero id="home" [name]="'Shehin T Shaji'"></app-liquid-hero>
     <app-about id="aboutme"></app-about>
     <app-thinking id="skills"></app-thinking>
     <app-projects id="projects"></app-projects>

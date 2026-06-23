@@ -4,7 +4,7 @@
 }
 
 .about-section {
-  /* transparent to allow body gradient */
+  /* transparent — body bg shows through */
 }
 
 .about-content {
@@ -14,7 +14,6 @@
   align-items: center;
 }
 
-/* ---------- Text Column ---------- */
 .about-text {
   padding-right: var(--space-lg);
 }
@@ -62,7 +61,7 @@
 }
 
 .about-bio--accent {
-  color: var(--color-accent);
+  color: var(--color-coral);
   font-weight: 500;
 }
 
@@ -78,8 +77,8 @@
   border-radius: var(--radius-pill);
   font-size: 0.8rem;
   font-family: var(--font-mono);
-  background: var(--glass-bg);
-  border: var(--glass-border);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(62, 39, 35, 0.1);
   color: var(--color-text);
 }
 
@@ -95,10 +94,9 @@
   aspect-ratio: 3/4;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  background: var(--glass-bg);
-  border: var(--glass-border);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  background: var(--color-bg-surface);
+  border: 1px solid rgba(62, 39, 35, 0.08);
+  box-shadow: 0 12px 40px rgba(255, 107, 107, 0.08);
 }
 
 .about-portrait img {
@@ -114,36 +112,14 @@
     grid-template-columns: 1fr;
     gap: var(--space-lg);
   }
-
-  .about-text {
-    padding-right: 0;
-    order: 2;
-  }
-
-  .about-portrait-wrapper {
-    order: 1;
-  }
-
-  .about-portrait {
-    max-width: 300px;
-  }
+  .about-text { padding-right: 0; order: 2; }
+  .about-portrait-wrapper { order: 1; }
+  .about-portrait { max-width: 300px; }
 }
 
 @media (max-width: 640px) {
-  .about-heading {
-    font-size: 1.8rem;
-  }
-
-  .khang-greeting {
-    font-size: 1.5rem;
-  }
-
-  .about-bio {
-    font-size: 1.15rem;
-    line-height: 1.5rem;
-  }
-
-  .about-portrait {
-    max-width: 260px;
-  }
+  .about-heading { font-size: 1.8rem; }
+  .khang-greeting { font-size: 1.5rem; }
+  .about-bio { font-size: 1.15rem; line-height: 1.5rem; }
+  .about-portrait { max-width: 260px; }
 }
