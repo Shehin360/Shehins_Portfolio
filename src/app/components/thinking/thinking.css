@@ -16,9 +16,13 @@
 .section-title {
   font-family: var(--font-mono);
   font-size: 2rem;
-  color: var(--color-text);
   font-weight: 500;
   letter-spacing: 0.05em;
+  background: var(--gradient-flowing);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: flowGradient 6s ease infinite;
 }
 
 .section-line {
@@ -43,16 +47,18 @@
   width: 140px;
   height: 140px;
   border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(62, 39, 35, 0.06);
-  box-shadow: 0 4px 16px rgba(62, 39, 35, 0.04);
+  background: rgba(15, 15, 20, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), 0 4px 16px rgba(0, 0, 0, 0.3);
   transition: all var(--transition-smooth);
 }
 
 .skill-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(255, 107, 107, 0.3);
-  box-shadow: 0 10px 30px rgba(255, 107, 107, 0.1);
+  border-color: rgba(0, 240, 255, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 240, 255, 0.2), inset 0 0 10px rgba(0, 240, 255, 0.1);
 }
 
 .skill-icon-wrapper {

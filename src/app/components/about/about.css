@@ -22,9 +22,13 @@
   font-family: var(--font-mono);
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 600;
-  color: var(--color-text);
   margin-bottom: var(--space-md);
   line-height: 1.15;
+  background: var(--gradient-flowing);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: flowGradient 6s ease infinite;
 }
 
 .khang-greeting {
@@ -49,6 +53,13 @@
   text-decoration: none;
   border-bottom: 2px solid var(--color-accent);
   padding-bottom: 2px;
+  color: var(--color-text);
+  transition: all 0.3s;
+}
+
+.khang-name:hover {
+  color: var(--color-accent);
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
 }
 
 .about-bio {
@@ -61,7 +72,7 @@
 }
 
 .about-bio--accent {
-  color: var(--color-coral);
+  color: var(--color-accent); /* Cyan accent */
   font-weight: 500;
 }
 
@@ -77,9 +88,9 @@
   border-radius: var(--radius-pill);
   font-size: 0.8rem;
   font-family: var(--font-mono);
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(62, 39, 35, 0.1);
-  color: var(--color-text);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-text-muted);
 }
 
 /* ---------- Portrait Column ---------- */
@@ -95,8 +106,8 @@
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--color-bg-surface);
-  border: 1px solid rgba(62, 39, 35, 0.08);
-  box-shadow: 0 12px 40px rgba(255, 107, 107, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 12px 40px rgba(0, 240, 255, 0.1);
 }
 
 .about-portrait img {

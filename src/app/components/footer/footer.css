@@ -53,11 +53,11 @@
 }
 
 .social-circle:hover {
-  background: var(--color-accent);
-  border-color: var(--color-accent);
-  color: #3E2723;
+  background: rgba(138, 43, 226, 0.2);
+  border-color: var(--color-coral);
+  color: var(--color-text);
   transform: translateY(-4px);
-  box-shadow: 0 4px 16px rgba(255, 184, 0, 0.3);
+  box-shadow: 0 4px 16px rgba(138, 43, 226, 0.4);
 }
 
 .footer-avatar {
@@ -70,7 +70,7 @@
   width: 140px;
   height: auto;
   object-fit: cover;
-  filter: drop-shadow(0 8px 16px rgba(255, 107, 107, 0.15));
+  filter: drop-shadow(0 8px 16px rgba(0, 240, 255, 0.15));
 }
 
 .footer-bottom {

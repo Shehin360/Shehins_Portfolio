@@ -12,12 +12,12 @@
 #main-nav {
   padding: 12px 24px;
   transition: all var(--transition-smooth);
-  background: rgba(253, 248, 240, 0.8);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(62, 39, 35, 0.08);
+  background: rgba(15, 15, 20, 0.6);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 50px;
-  box-shadow: 0 2px 12px rgba(62, 39, 35, 0.06);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
 }
 
 .nav-inner {
@@ -31,7 +31,7 @@
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid rgba(255, 107, 107, 0.3);
+  border: 2px solid rgba(0, 240, 255, 0.5);
 }
 
 .nav-links {

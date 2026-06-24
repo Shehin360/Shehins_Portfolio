@@ -16,9 +16,13 @@
 .section-title {
   font-family: var(--font-mono);
   font-size: 2rem;
-  color: var(--color-text);
   font-weight: 500;
   letter-spacing: 0.05em;
+  background: var(--gradient-flowing);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: flowGradient 6s ease infinite;
 }
 
 .section-line {
@@ -41,16 +45,28 @@
   padding: 3rem;
   transition: all var(--transition-smooth);
   min-height: 280px;
-  background: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(62, 39, 35, 0.06);
+  background: rgba(15, 15, 20, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: var(--radius-lg);
-  box-shadow: 0 4px 20px rgba(62, 39, 35, 0.04);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), 0 12px 32px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  z-index: 10;
 }
 
 .project-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(255, 107, 107, 0.25);
-  box-shadow: 0 12px 40px rgba(255, 107, 107, 0.08);
+  border-color: rgba(138, 43, 226, 0.5); /* Purple glow */
+  box-shadow: inset 0 0 10px rgba(138, 43, 226, 0.1), 0 12px 40px rgba(138, 43, 226, 0.2);
 }
 
 .project-content {
@@ -99,8 +115,8 @@
   font-size: 0.75rem;
   padding: 4px 12px;
   border-radius: var(--radius-sm);
-  background: rgba(62, 39, 35, 0.05);
-  border: 1px solid rgba(62, 39, 35, 0.08);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   color: var(--color-text-muted);
 }
 

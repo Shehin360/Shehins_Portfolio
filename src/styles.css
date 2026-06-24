@@ -1,34 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap');
 
 /* ============================================================
-   GLOBAL DESIGN SYSTEM — Warm Pearl Cream Light Theme
+   GLOBAL DESIGN SYSTEM — Dark Futuristic Bento Theme
    ============================================================ */
 
 :root {
   /* Background */
-  --color-bg:          #FDF8F0;
-  --color-bg-surface:  #FAF3E8;
-  --color-bg-elevated: #FFFFFF;
+  --color-bg:          #06060A; /* Deep dark void */
+  --color-bg-surface:  #0C0D14; /* Slightly lighter for elements */
+  --color-bg-elevated: #151622;
 
   /* Text */
-  --color-text:        #3E2723;
-  --color-text-muted:  #8D6E63;
-  --color-text-ghost:  rgba(62, 39, 35, 0.1);
+  --color-text:        #FFFFFF;
+  --color-text-muted:  #94A1B2;
+  --color-text-ghost:  rgba(255, 255, 255, 0.1);
 
   /* Borders */
-  --color-border:      rgba(62, 39, 35, 0.12);
+  --color-border:      rgba(255, 255, 255, 0.08);
 
-  /* Accent */
-  --color-accent:      #FFB800;
-  --color-coral:       #FF6B6B;
-  --color-mint:        #40E0D0;
+  /* Accents */
+  --color-accent:      #00F0FF; /* Neon Cyan */
+  --color-coral:       #8A2BE2; /* Electric Purple */
+  --color-mint:        #00F0FF; /* Alias mint to cyan for now since components use it */
 
-  --gradient-text:     linear-gradient(90deg, #FF6B6B 0%, #40E0D0 100%);
-  --gradient-btn:      linear-gradient(135deg, #FFB800 0%, #FFA000 100%);
+  --gradient-text:     linear-gradient(90deg, #00F0FF, #8A2BE2);
+  --gradient-btn:      linear-gradient(135deg, #00F0FF 0%, #8A2BE2 100%);
+  --gradient-flowing:  linear-gradient(270deg, #00F0FF, #8A2BE2, #00F0FF, #8A2BE2);
 
-  /* Cards / Glass (light version — frosted white, not dark) */
-  --glass-bg:          rgba(255, 255, 255, 0.6);
-  --glass-border:      1px solid rgba(62, 39, 35, 0.08);
+  /* Dark Liquid Glass Bento */
+  --glass-bg:          rgba(15, 15, 20, 0.4);
+  --glass-border:      1px solid rgba(255, 255, 255, 0.06);
 
   /* Fonts */
   --font-mono:    'Fira Code', monospace;
@@ -39,14 +40,14 @@
   --space-xs:  0.5rem;
   --space-sm:  1rem;
   --space-md:  1.5rem;
-  --space-lg:  3rem;
-  --space-xl:  5rem;
-  --space-2xl: 8rem;
+  --space-lg:  2rem; /* Reduced for tighter bento layout */
+  --space-xl:  3rem;
+  --space-2xl: 5rem;
 
   /* Radii */
-  --radius-sm:   8px;
-  --radius-md:   16px;
-  --radius-lg:   24px;
+  --radius-sm:   12px;
+  --radius-md:   20px;
+  --radius-lg:   32px; /* Bento rounded corners */
   --radius-pill: 100px;
 
   /* Misc */
@@ -74,6 +75,44 @@ body {
   background-color: var(--color-bg);
   line-height: 1.7;
   overflow-x: hidden;
+  position: relative;
+}
+
+/* Shifting Floating Blobs in Background */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: 50%;
+  width: 50vw;
+  height: 50vw;
+  max-width: 800px;
+  max-height: 800px;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(140px);
+  z-index: -1;
+  opacity: 0.15;
+  animation: floatBlobs 20s infinite ease-in-out alternate;
+}
+
+body::before {
+  left: -20vw;
+  background: var(--color-accent); /* Cyan */
+  transform: translateY(-50%);
+}
+
+body::after {
+  right: -20vw;
+  background: var(--color-coral); /* Purple */
+  transform: translateY(-30%);
+  animation-delay: -10s;
+}
+
+@keyframes floatBlobs {
+  0% { transform: translateY(-40%) scale(1); }
+  50% { transform: translateY(-60%) scale(1.1); }
+  100% { transform: translateY(-30%) scale(0.9); }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -102,15 +141,15 @@ button {
 }
 
 ::selection {
-  background: rgba(255, 107, 107, 0.2);
+  background: rgba(0, 240, 255, 0.2);
   color: var(--color-text);
 }
 
 /* ---------- Scrollbar ---------- */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--color-bg); }
-::-webkit-scrollbar-thumb { background: rgba(255, 107, 107, 0.3); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(64, 224, 208, 0.4); }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0, 240, 255, 0.4); }
 
 /* ---------- Utility Classes ---------- */
 .container {
@@ -130,38 +169,67 @@ button {
   background-clip: text;
 }
 
-/* ---------- Light Glassmorphism ---------- */
+.gradient-flowing {
+  background: var(--gradient-flowing);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: flowGradient 6s ease infinite;
+}
+
+@keyframes flowGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ---------- Dark Liquid Glassmorphism ---------- */
 .glass-panel {
   background: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border: var(--glass-border);
   border-radius: var(--radius-lg);
-  box-shadow: 0 4px 24px rgba(62, 39, 35, 0.06);
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.05),
+    0 12px 32px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Adds a subtle glassy highlight to panels */
+.glass-panel::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  z-index: 10;
 }
 
 .glass-pill {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(62, 39, 35, 0.08);
+  background: rgba(15, 15, 20, 0.6);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: var(--radius-pill);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), 0 4px 16px rgba(0,0,0,0.3);
 }
 
 /* ---------- Buttons ---------- */
 .btn-primary {
   background: var(--gradient-btn);
-  color: #3E2723;
+  color: #000;
   padding: 12px 32px;
   border-radius: var(--radius-sm);
   font-weight: 700;
   font-size: 1rem;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 16px rgba(255, 184, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 240, 255, 0.3);
 }
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(255, 184, 0, 0.45);
+  box-shadow: 0 8px 32px rgba(138, 43, 226, 0.5);
 }
 
 /* ---------- Section Headers (shared) ---------- */
@@ -176,13 +244,11 @@ button {
   font-size: 2rem;
   font-weight: 500;
   letter-spacing: 0.05em;
-  background: var(--gradient-text);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  /* Now defaults to flowing gradient */
 }
+
 .section-line {
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, rgba(255, 107, 107, 0.25) 0%, transparent 100%);
+  background: linear-gradient(90deg, rgba(0, 240, 255, 0.25) 0%, transparent 100%);
 }

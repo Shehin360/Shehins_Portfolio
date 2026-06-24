@@ -125,13 +125,27 @@ import { isPlatformBrowser, NgFor } from '@angular/common';
     }
 
     .hero-section {
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 6rem 0 3rem;
+      padding: 4rem 2rem;
       position: relative;
+      border-radius: var(--radius-lg);
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: var(--glass-border);
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), 0 12px 32px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+      z-index: 10;
     }
 
     .hero-bg-svg {
@@ -163,7 +177,7 @@ import { isPlatformBrowser, NgFor } from '@angular/common';
     .hello-lead-in {
       font-family: var(--font-mono, 'Fira Code', monospace);
       font-size: 1.25rem;
-      color: var(--color-text-muted, #8D6E63);
+      color: var(--color-accent);
       margin-bottom: -1rem; /* pull name closer */
       font-weight: 500;
     }
@@ -200,14 +214,19 @@ import { isPlatformBrowser, NgFor } from '@angular/common';
       font-family: var(--font-sans, 'Inter', sans-serif);
       font-size: clamp(1.25rem, 2.5vw, 1.75rem);
       font-weight: 600;
-      color: var(--color-text, #3E2723);
+      color: var(--color-text);
       line-height: 1.2;
+      background: var(--gradient-flowing);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: flowGradient 6s ease infinite;
     }
 
     .hero-tagline {
       font-family: var(--font-mono, 'Fira Code', monospace);
       font-size: clamp(0.9rem, 1.5vw, 1rem);
-      color: var(--color-text-muted, #8D6E63);
+      color: var(--color-text-muted);
       letter-spacing: 0.05em;
     }
 
@@ -265,8 +284,8 @@ import { isPlatformBrowser, NgFor } from '@angular/common';
     }
 
     .loader {
-      border: 3px solid rgba(62, 39, 35, 0.1);
-      border-top-color: #FF6B6B;
+      border: 3px solid rgba(255, 255, 255, 0.1);
+      border-top-color: var(--color-accent);
       border-radius: 50%;
       width: 30px; height: 30px;
       animation: spin 1s linear infinite;
